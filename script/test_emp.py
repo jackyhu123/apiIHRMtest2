@@ -38,24 +38,24 @@ class TestIHRMEmp(unittest.TestCase):
         response = self.emp_api.update_emp(username)
         jsonData = response.json()
         logging.info('修改员工接口返回数据{}'.format(jsonData))
-        # 建立数据库连接一
-        # with DBUtils()as db_utils:
-        #     sql = 'select username from bs_user where id={}'.format(app.EMP_ID)
-        #     db_utils.execute(sql)
-        #     result = db_utils.fetchone()[0]
-        #     logging.info('从数据库中查询出的员工用户名是：{}'.format(result))
-        # 建立数据库连接二
-        conn = pymysql.connect('182.92.82.159','readuser','iHRM_user_2019','ihrm')
-        # 获取游标
-        cursor = conn.cursor()
-        sql = "select username from bs_user where id ={}".format(app.EMP_ID)
-        cursor.execute(sql)
-        # 获取呢执行结果
-        result = cursor.fetchone()[0]
-        logging.info('从数据库中查询出的员工用户名是：{}'.format(result))
-        self.assertEqual(username,result)
-        cursor.close()
-        conn.close()
+        # # 建立数据库连接一
+        # # with DBUtils()as db_utils:
+        # #     sql = 'select username from bs_user where id={}'.format(app.EMP_ID)
+        # #     db_utils.execute(sql)
+        # #     result = db_utils.fetchone()[0]
+        # #     logging.info('从数据库中查询出的员工用户名是：{}'.format(result))
+        # # 建立数据库连接二
+        # conn = pymysql.connect('182.92.82.159','readuser','iHRM_user_2019','ihrm')
+        # # 获取游标
+        # cursor = conn.cursor()
+        # sql = "select username from bs_user where id ={}".format(app.EMP_ID)
+        # cursor.execute(sql)
+        # # 获取呢执行结果
+        # result = cursor.fetchone()[0]
+        # logging.info('从数据库中查询出的员工用户名是：{}'.format(result))
+        # self.assertEqual(username,result)
+        # cursor.close()
+        # conn.close()
         assert_common(self, response, http_code, success, code, message)
 
     @parameterized.expand(read_delete_emp_data)
